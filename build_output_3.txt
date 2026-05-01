@@ -1,0 +1,153 @@
+Creating temporary archive of 40 file(s) totalling 281.3 KiB before compression.
+Uploading tarball of [.] to [gs://genelect_cloudbuild/source/1777304035.019257-671c1b0c0c7a45408891540f64d3d189.tgz]
+Created [https://cloudbuild.googleapis.com/v1/projects/genelect/locations/global/builds/3a371485-5732-496b-bf59-fd04dd13db86].
+Logs are available at [ https://console.cloud.google.com/cloud-build/builds/3a371485-5732-496b-bf59-fd04dd13db86?project=259935912667 ].
+Waiting for build to complete. Polling interval: 1 second(s).
+----------------------------- REMOTE BUILD OUTPUT ------------------------------
+starting build "3a371485-5732-496b-bf59-fd04dd13db86"
+
+FETCHSOURCE
+Fetching storage object: gs://genelect_cloudbuild/source/1777304035.019257-671c1b0c0c7a45408891540f64d3d189.tgz#1777304037141067
+Copying gs://genelect_cloudbuild/source/1777304035.019257-671c1b0c0c7a45408891540f64d3d189.tgz#1777304037141067...
+/ [0 files][    0.0 B/ 82.7 KiB]                                                / [1 files][ 82.7 KiB/ 82.7 KiB]                                                
+Operation completed over 1 objects/82.7 KiB.
+BUILD
+Already have image (with digest): gcr.io/cloud-builders/gcb-internal
+Sending build context to Docker daemon  323.6kB
+Step 1/8 : FROM node:22
+22: Pulling from library/node
+db53381ee51f: Pulling fs layer
+e5203b2bfeff: Pulling fs layer
+8fcda2b4d799: Pulling fs layer
+2933ecab0f11: Pulling fs layer
+4585ed584457: Pulling fs layer
+00b9b30c37fc: Pulling fs layer
+d140044f4433: Pulling fs layer
+16641aa11d02: Pulling fs layer
+d140044f4433: Waiting
+16641aa11d02: Waiting
+4585ed584457: Verifying Checksum
+4585ed584457: Download complete
+e5203b2bfeff: Verifying Checksum
+e5203b2bfeff: Download complete
+d140044f4433: Verifying Checksum
+d140044f4433: Download complete
+16641aa11d02: Download complete
+00b9b30c37fc: Verifying Checksum
+00b9b30c37fc: Download complete
+db53381ee51f: Verifying Checksum
+db53381ee51f: Download complete
+8fcda2b4d799: Download complete
+2933ecab0f11: Download complete
+db53381ee51f: Pull complete
+e5203b2bfeff: Pull complete
+8fcda2b4d799: Pull complete
+2933ecab0f11: Pull complete
+4585ed584457: Pull complete
+00b9b30c37fc: Pull complete
+d140044f4433: Pull complete
+16641aa11d02: Pull complete
+Digest: sha256:9059d9d7db987b86299e052ff6630cd95e5a770336967c21110e53289a877433
+Status: Downloaded newer image for node:22
+ ---> 602f833141e9
+Step 2/8 : WORKDIR /app
+ ---> Running in 915cd093ff35
+Removing intermediate container 915cd093ff35
+ ---> 62970a4c4272
+Step 3/8 : COPY package*.json ./
+ ---> 56c9d9c0b70e
+Step 4/8 : RUN npm install
+ ---> Running in be961903f1bc
+[91mnpm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+[0m
+added 360 packages, and audited 361 packages in 10s
+
+145 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[91mnpm notice
+npm notice New major version of npm available! 10.9.7 -> 11.13.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.13.0
+npm notice To update run: npm install -g npm@11.13.0
+npm notice
+[0mRemoving intermediate container be961903f1bc
+ ---> 46b60f73c54c
+Step 5/8 : COPY . .
+ ---> 5e0de98978e0
+Step 6/8 : RUN npm run build
+ ---> Running in f3d83564ae32
+
+> election@0.0.0 build
+> tsc -b && vite build
+vite v8.0.9 building client environment for production...
+[2Ktransforming...✓ 1898 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.48 kB │ gzip:   0.31 kB
+dist/assets/index-BsxgZG2z.css   12.07 kB │ gzip:   2.92 kB
+dist/assets/index-DFg_KMO8.js   588.77 kB │ gzip: 153.43 kB
+
+✓ built in 785ms
+[91m[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[0mRemoving intermediate container f3d83564ae32
+ ---> 1b9ca776042c
+Step 7/8 : RUN npm install -g serve
+ ---> Running in d9ec669c5bf5
+
+added 85 packages in 5s
+
+26 packages are looking for funding
+  run `npm fund` for details
+Removing intermediate container d9ec669c5bf5
+ ---> 30e751c06383
+Step 8/8 : CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
+ ---> Running in 7a52e4ce54a1
+Removing intermediate container 7a52e4ce54a1
+ ---> 70a64545b97a
+Successfully built 70a64545b97a
+Successfully tagged gcr.io/genelect/election-guide:latest
+PUSH
+Pushing gcr.io/genelect/election-guide
+The push refers to repository [gcr.io/genelect/election-guide]
+36195140be28: Preparing
+4a76de3333e5: Preparing
+76be59048e36: Preparing
+b3720b3a6a53: Preparing
+570a58fdce7f: Preparing
+e3a55c35d8a5: Preparing
+14cc6c2a08d6: Preparing
+d8bed363782a: Preparing
+f4c34ca0749f: Preparing
+6e4938f9407c: Preparing
+86bd23104727: Preparing
+349d8de752ef: Preparing
+b9d5943c22e8: Preparing
+e00d8ce3c171: Preparing
+86bd23104727: Waiting
+349d8de752ef: Waiting
+b9d5943c22e8: Waiting
+e00d8ce3c171: Waiting
+6e4938f9407c: Layer already exists
+f4c34ca0749f: Layer already exists
+d8bed363782a: Layer already exists
+14cc6c2a08d6: Layer already exists
+76be59048e36: Pushed
+4a76de3333e5: Pushed
+570a58fdce7f: Pushed
+e3a55c35d8a5: Pushed
+86bd23104727: Layer already exists
+349d8de752ef: Layer already exists
+36195140be28: Pushed
+b9d5943c22e8: Layer already exists
+e00d8ce3c171: Layer already exists
+b3720b3a6a53: Pushed
+latest: digest: sha256:1b2778658b74e588a8bf7aa14fe930e92fceb0b9edc168139117773d6742175f size: 3264
+DONE
+--------------------------------------------------------------------------------
+ID                                    CREATE_TIME                DURATION  SOURCE                                                                                  IMAGES                                    STATUS
+3a371485-5732-496b-bf59-fd04dd13db86  2026-04-27T15:33:57+00:00  1M34S     gs://genelect_cloudbuild/source/1777304035.019257-671c1b0c0c7a45408891540f64d3d189.tgz  gcr.io/genelect/election-guide (+1 more)  SUCCESS

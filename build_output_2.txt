@@ -1,0 +1,68 @@
+Creating temporary archive of 39 file(s) totalling 277.7 KiB before compression.
+Uploading tarball of [.] to [gs://genelect_cloudbuild/source/1777303922.344448-df158676f041446ebcd8629f8b4cb4fe.tgz]
+Created [https://cloudbuild.googleapis.com/v1/projects/genelect/locations/global/builds/f555d302-237f-4433-919b-bfe81cc0c1ea].
+Logs are available at [ https://console.cloud.google.com/cloud-build/builds/f555d302-237f-4433-919b-bfe81cc0c1ea?project=259935912667 ].
+Waiting for build to complete. Polling interval: 1 second(s).
+
+BUILD FAILURE: Build step failure: build step 0 "gcr.io/cloud-builders/gcb-internal" failed: step exited with non-zero status: 1
+ERROR: (gcloud.builds.submit) build f555d302-237f-4433-919b-bfe81cc0c1ea completed with status "FAILURE"
+----------------------------- REMOTE BUILD OUTPUT ------------------------------
+starting build "f555d302-237f-4433-919b-bfe81cc0c1ea"
+
+FETCHSOURCE
+Fetching storage object: gs://genelect_cloudbuild/source/1777303922.344448-df158676f041446ebcd8629f8b4cb4fe.tgz#1777303924279906
+Copying gs://genelect_cloudbuild/source/1777303922.344448-df158676f041446ebcd8629f8b4cb4fe.tgz#1777303924279906...
+/ [0 files][    0.0 B/ 82.1 KiB]                                                / [1 files][ 82.1 KiB/ 82.1 KiB]                                                
+Operation completed over 1 objects/82.1 KiB.
+BUILD
+Already have image (with digest): gcr.io/cloud-builders/gcb-internal
+Sending build context to Docker daemon  319.5kB
+Step 1/8 : FROM node:22-alpine
+22-alpine: Pulling from library/node
+6a0ac1617861: Pulling fs layer
+9e177ba73d9f: Pulling fs layer
+4cc15311d45b: Pulling fs layer
+8bfa0019f928: Pulling fs layer
+8bfa0019f928: Verifying Checksum
+8bfa0019f928: Download complete
+4cc15311d45b: Verifying Checksum
+4cc15311d45b: Download complete
+6a0ac1617861: Verifying Checksum
+6a0ac1617861: Download complete
+6a0ac1617861: Pull complete
+9e177ba73d9f: Verifying Checksum
+9e177ba73d9f: Download complete
+9e177ba73d9f: Pull complete
+4cc15311d45b: Pull complete
+8bfa0019f928: Pull complete
+Digest: sha256:8ea2348b068a9544dae7317b4f3aafcdc032df1647bb7d768a05a5cad1a7683f
+Status: Downloaded newer image for node:22-alpine
+ ---> 04a4709b55a8
+Step 2/8 : WORKDIR /app
+ ---> Running in ce7580764e1e
+Removing intermediate container ce7580764e1e
+ ---> 296fffcd1ffc
+Step 3/8 : COPY package*.json ./
+ ---> c9d8439b523c
+Step 4/8 : RUN npm install -g npm@latest && npm ci
+ ---> Running in f45913c04d19
+[91mnpm error code MODULE_NOT_FOUND
+[0m[91mnpm error Cannot find module 'promise-retry'
+npm error Require stack:
+npm error - /usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/rebuild.js
+npm error - /usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/index.js
+npm error - /usr/local/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/index.js
+npm error - /usr/local/lib/node_modules/npm/node_modules/libnpmfund/lib/index.js
+npm error - /usr/local/lib/node_modules/npm/lib/utils/reify-output.js
+npm error - /usr/local/lib/node_modules/npm/lib/utils/reify-finish.js
+npm error - /usr/local/lib/node_modules/npm/lib/commands/install.js
+npm error - /usr/local/lib/node_modules/npm/lib/npm.js
+npm error - /usr/local/lib/node_modules/npm/lib/cli/entry.js
+npm error - /usr/local/lib/node_modules/npm/lib/cli.js
+npm error - /usr/local/lib/node_modules/npm/bin/npm-cli.js
+[0m[91mnpm error A complete log of this run can be found in: /root/.npm/_logs/2026-04-27T15_32_18_003Z-debug-0.log
+The command '/bin/sh -c npm install -g npm@latest && npm ci' returned a non-zero code: 1
+ERROR
+ERROR: build step 0 "gcr.io/cloud-builders/gcb-internal" failed: step exited with non-zero status: 1
+[0m
+--------------------------------------------------------------------------------

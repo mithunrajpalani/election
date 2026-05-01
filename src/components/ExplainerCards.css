@@ -31,7 +31,8 @@
   border-radius: 0.5rem;
 }
 
-.explainer-card:hover .card-inner {
+.explainer-card:hover .card-inner,
+.explainer-card:focus-within .card-inner {
   transform: rotateY(180deg);
   box-shadow: var(--shadow-lg);
 }

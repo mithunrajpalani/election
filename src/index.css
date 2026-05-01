@@ -122,3 +122,25 @@ button {
 .card:hover {
   box-shadow: var(--shadow-md);
 }
+
+/* Accessibility: Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-navy);
+  color: var(--color-gold);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Accessibility: Strict focus-visible */
+*:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}

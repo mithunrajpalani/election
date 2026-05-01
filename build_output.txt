@@ -1,0 +1,82 @@
+Creating temporary archive of 38 file(s) totalling 273.6 KiB before compression.
+Uploading tarball of [.] to [gs://genelect_cloudbuild/source/1777303667.803438-597dea5084134092b0d69dab1f53fb95.tgz]
+Created [https://cloudbuild.googleapis.com/v1/projects/genelect/locations/global/builds/8d177b78-d74a-49e4-be0e-18bb6a2a8881].
+Logs are available at [ https://console.cloud.google.com/cloud-build/builds/8d177b78-d74a-49e4-be0e-18bb6a2a8881?project=259935912667 ].
+Waiting for build to complete. Polling interval: 1 second(s).
+
+BUILD FAILURE: Build step failure: build step 0 "gcr.io/cloud-builders/gcb-internal" failed: step exited with non-zero status: 1
+ERROR: (gcloud.builds.submit) build 8d177b78-d74a-49e4-be0e-18bb6a2a8881 completed with status "FAILURE"
+----------------------------- REMOTE BUILD OUTPUT ------------------------------
+starting build "8d177b78-d74a-49e4-be0e-18bb6a2a8881"
+
+FETCHSOURCE
+Fetching storage object: gs://genelect_cloudbuild/source/1777303667.803438-597dea5084134092b0d69dab1f53fb95.tgz#1777303671404425
+Copying gs://genelect_cloudbuild/source/1777303667.803438-597dea5084134092b0d69dab1f53fb95.tgz#1777303671404425...
+/ [0 files][    0.0 B/ 80.4 KiB]                                                / [1 files][ 80.4 KiB/ 80.4 KiB]                                                
+Operation completed over 1 objects/80.4 KiB.
+BUILD
+Already have image (with digest): gcr.io/cloud-builders/gcb-internal
+Sending build context to Docker daemon  313.9kB
+Step 1/8 : FROM node:20-alpine
+20-alpine: Pulling from library/node
+6a0ac1617861: Pulling fs layer
+4feea04c1543: Pulling fs layer
+b2cbbfe903b0: Pulling fs layer
+fff4e2c1b189: Pulling fs layer
+fff4e2c1b189: Download complete
+b2cbbfe903b0: Verifying Checksum
+b2cbbfe903b0: Download complete
+6a0ac1617861: Verifying Checksum
+6a0ac1617861: Download complete
+4feea04c1543: Verifying Checksum
+4feea04c1543: Download complete
+6a0ac1617861: Pull complete
+4feea04c1543: Pull complete
+b2cbbfe903b0: Pull complete
+fff4e2c1b189: Pull complete
+Digest: sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+Status: Downloaded newer image for node:20-alpine
+ ---> 11cedc39e663
+Step 2/8 : WORKDIR /app
+ ---> Running in f76be6d5fbad
+Removing intermediate container f76be6d5fbad
+ ---> 3034184c79ce
+Step 3/8 : COPY package*.json ./
+ ---> 1f87bd6423bf
+Step 4/8 : RUN npm ci
+ ---> Running in 3b2e46065fbc
+[91mnpm error code EUSAGE
+[0m[91mnpm error
+npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+npm error
+npm error Missing: @emnapi/core@1.10.0 from lock file
+npm error Missing: @emnapi/runtime@1.10.0 from lock file
+npm error
+npm error Clean install a project
+npm error
+npm error Usage:
+npm error npm ci
+npm error
+npm error Options:
+npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+npm error [--no-bin-links] [--no-fund] [--dry-run]
+npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+npm error
+npm error aliases: clean-install, ic, install-clean, isntall-clean
+npm error
+npm error Run "npm help ci" for more info
+[0m[91mnpm notice
+npm notice New major version of npm available! 10.8.2 -> 11.13.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.13.0
+npm notice To update run: npm install -g npm@11.13.0
+npm notice
+[0m[91mnpm error A complete log of this run can be found in: /root/.npm/_logs/2026-04-27T15_28_10_964Z-debug-0.log
+The command '/bin/sh -c npm ci' returned a non-zero code: 1
+ERROR
+ERROR: build step 0 "gcr.io/cloud-builders/gcb-internal" failed: step exited with non-zero status: 1
+[0m
+--------------------------------------------------------------------------------
